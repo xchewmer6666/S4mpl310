@@ -1,0 +1,23 @@
+< !DOCTYPE html>
+  <html>
+
+  <head>
+    <script src="Tone.js">
+    </script>
+    <script>
+      // Initialite synth object
+      try {
+        var osc = new Tone.Oscillator().toDestination();
+        var synth = new Tone.PolySynth({}, Tone.Synth).toDestination();
+      } catch (err) {
+        window.ReactNativeWebView.postMessage(err);
+      }
+
+
+    </script>
+  </head>
+
+  <body>
+  </body>
+
+  </html>

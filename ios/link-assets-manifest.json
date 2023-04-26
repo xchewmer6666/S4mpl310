@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/Tone.js",
+      "sha1": "52902f6352c7a2285b789ad7bef5a65ad9ebd62b"
+    },
+    {
+      "path": "assets/hu.wav",
+      "sha1": "67d17473a8d0299179fbaa75668b92035730d4e0"
+    },
+    {
+      "path": "assets/webview.html",
+      "sha1": "79a717e9bb5700d0efe294a5b2e57d34ab39b83b"
+    }
+  ]
+}
