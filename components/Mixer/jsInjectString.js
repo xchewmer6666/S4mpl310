@@ -16,6 +16,7 @@ export const jsInjector = (pitchRes, timing, delay, play) => `
         }else{
           playHandler${delay}();
         }
+        
 
         // if(${delay} == 1){
           //   if(timeout2 || timeout3){
