@@ -2,6 +2,10 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/Nab.png",
+      "sha1": "faa75dd5bd05c38196584a067374932011d79bd2"
+    },
+    {
       "path": "assets/Tone.js",
       "sha1": "52902f6352c7a2285b789ad7bef5a65ad9ebd62b"
     },
@@ -10,8 +14,20 @@
       "sha1": "67d17473a8d0299179fbaa75668b92035730d4e0"
     },
     {
+      "path": "assets/sample01.wav",
+      "sha1": "02900d658204666a2e8842c05f7b8cad20658abd"
+    },
+    {
+      "path": "assets/sample02.wav",
+      "sha1": "93a22d28b17d303de81843bc791c5b1b275a4459"
+    },
+    {
+      "path": "assets/sample03.wav",
+      "sha1": "fd76bfc8750f07c9782c64322dadf2e41d3da65a"
+    },
+    {
       "path": "assets/webview.html",
-      "sha1": "79a717e9bb5700d0efe294a5b2e57d34ab39b83b"
+      "sha1": "70e10e742287323d306edc69bea7c48f2c5d2292"
     }
   ]
 }

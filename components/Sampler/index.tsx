@@ -1,15 +1,11 @@
-import { Modal, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
 
 import WebView from 'react-native-webview';
-import { FlashList } from "@shopify/flash-list";
-import { Picker } from '@react-native-picker/picker';
 
 import { styles } from './styles';
-import { margin_bg, width } from '../../constants';
-import { globalStyles } from '../../constants/globalStyles';
+import { margin_bg, } from '../../constants';
 
-import ModalMixer from '../ModalMixer';
 import Tiles from './Tiles';
 
 interface Props {
@@ -93,45 +89,6 @@ const Sampler = ({ webViewRef }: Props) => {
         }}
       >
         <Text style={{ color: 'white', fontSize: 20, fontFamily: 'Courier' }}>Sampler_Module</Text>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-        }}
-      >
-
-
-        <View style={{
-          marginTop: 20,
-        }}>
-          <Text style={[styles.text, { color: 'white', fontSize: 20, margin: margin_bg }]}>My_Samples:</Text>
-          <View
-            style={{
-              width: width / 2,
-              marginTop: -50,
-            }}
-          >
-            <Picker
-              selectedValue={pickedSample}
-              onValueChange={(itemValue, itemIndex) => {
-                setPickedSamples(itemValue);
-                console.log(itemValue);
-              }}
-            >
-              <Picker.Item color="#fff" style={{ backgroundColor: "white", color: "#fff", }} label="hu.wav" value="hu.wav" />
-              <Picker.Item color="white" style={{ backgroundColor: "white", color: "white", }} label="null" value="" />
-            </Picker>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          style={[styles.button, { height: 60, width: 100 }]}
-          onPress={() => attack()}
-        >
-          <Text style={styles.text}>init</Text>
-        </TouchableOpacity>
-
       </View>
 
       <Tiles webViewRef={webViewRef} />

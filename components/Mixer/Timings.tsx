@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 interface Props {
   name: string;
@@ -13,6 +14,8 @@ const Timings = ({
   setValue
 }: Props) => {
   const inputRef = useRef<TextInput>(null);
+  const globalBpm = useSelector((state: any) => state.bpm.bpm);
+
   return (
     <View
       style={{
@@ -30,7 +33,22 @@ const Timings = ({
             inputRef.current?.blur();
             return;
           }
-          setValue(text);
+
+          if (name === 'timing') {
+            if (parseFloat(text) * 60 <= globalBpm) {
+              setValue(text);
+              return;
+            }
+
+            if (text === '' || text === '.') {
+              setValue(text);
+              return;
+            }
+            setValue(`${globalBpm / 60}`);
+          }
+          else {
+            setValue(text);
+          }
         }}
         style={{
           backgroundColor: 'silver',

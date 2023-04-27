@@ -1,24 +1,26 @@
-< !DOCTYPE html>
-  <html>
+<!DOCTYPE html>
 
-  <head>
-    <script src="Resources/Tone.js">
-    </script>
-    <script>
-      // Initialite synth object
-      try {
-        var osc = new Tone.Oscillator();
-        var synth = new Tone.PolySynth({}, Tone.Synth).toDestination();
-        window.ReactNativeWebView.postMessage('a');
-      } catch (err) {
-        window.ReactNativeWebView.postMessage(err);
-      }
+<html>
+<!-- backup -->
+
+<head>
+  <script src="Resources/Tone.js">
+  </script>
+  <script>
+    // Initialite synth object
+    try {
+      var osc = new Tone.Oscillator();
+      var synth = new Tone.PolySynth({}, Tone.Synth).toDestination();
+      window.ReactNativeWebView.postMessage('a');
+    } catch (err) {
+      window.ReactNativeWebView.postMessage(err);
+    }
 
 
-    </script>
-  </head>
+  </script>
+</head>
 
-  <body>
-  </body>
+<body>
+</body>
 
-  </html>
+</html>

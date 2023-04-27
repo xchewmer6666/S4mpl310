@@ -9,15 +9,18 @@
       try {
         var osc = new Tone.Oscillator().toDestination();
         var synth = new Tone.PolySynth({}, Tone.Synth).toDestination();
+
       } catch (err) {
         window.ReactNativeWebView.postMessage(err);
       }
 
+      timeout = false;
 
     </script>
   </head>
 
   <body>
+    <a id="stop"></a>
   </body>
 
   </html>

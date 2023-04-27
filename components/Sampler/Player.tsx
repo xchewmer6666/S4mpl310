@@ -1,43 +1,18 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
-import { radius_md, radius_sm } from '../../constants';
+import Bpm from '../Bpm';
 
-interface Props {
-  play: boolean;
-  setPlay: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Player = ({ play, setPlay }: Props) => {
-
-  const playHandler = () => {
-    setPlay(!play);
-  }
+const Player = () => {
 
   return (
-    <TouchableOpacity
-      onPress={playHandler}
+    <View
       style={{
-        width: 100,
-        height: 50,
-        backgroundColor: '#16FF00',
-        borderRadius: radius_sm,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 40
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
       }}
     >
-      <Text
-        style={{
-          color: 'black',
-          fontFamily: 'Courier',
-          fontSize: 17,
-        }}
-      >{
-          play ?
-            'Stop' :
-            'Play'
-        }</Text>
-    </TouchableOpacity>
+      <Bpm />
+    </View>
 
   );
 }

@@ -16,7 +16,11 @@
 		62C65E1009D3A6B26F4345A3 /* libPods-S4mpl310-S4mpl310Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A6CA30227EA7B2A4545803 /* libPods-S4mpl310-S4mpl310Tests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A4B703BFF1ABCC66DE7774BC /* libPods-S4mpl310.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8AD7A32FD4540A9C234F9D /* libPods-S4mpl310.a */; };
-		FA458EC7C0354230B5462531 /* webview.html in Resources */ = {isa = PBXBuildFile; fileRef = 507DED3D2F854266BF165F03 /* webview.html */; };
+		D185CE9886954C7DBEC85A42 /* Nab.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE6F1802FB346989C5B5345 /* Nab.png */; };
+		16BCD12AB20D47F18DF8A253 /* sample01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3BC862CE47C74AC9ACE9C749 /* sample01.wav */; };
+		5533DE2D73104A5A989F576D /* sample02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 71E126A214014641AF3480B3 /* sample02.wav */; };
+		A628E3F5CF15459DB83BDB2F /* sample03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 41504005341C4022881BFDD7 /* sample03.wav */; };
+		E077AF9F45DA424888536BA0 /* webview.html in Resources */ = {isa = PBXBuildFile; fileRef = 41235A62EFC64387A51CACF7 /* webview.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +45,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = S4mpl310/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = S4mpl310/main.m; sourceTree = "<group>"; };
 		1B8AD7A32FD4540A9C234F9D /* libPods-S4mpl310.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-S4mpl310.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		507DED3D2F854266BF165F03 /* webview.html */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = webview.html; path = ../assets/webview.html; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = S4mpl310/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		820C592471BD45F3DB0F7F2C /* Pods-S4mpl310-S4mpl310Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S4mpl310-S4mpl310Tests.debug.xcconfig"; path = "Target Support Files/Pods-S4mpl310-S4mpl310Tests/Pods-S4mpl310-S4mpl310Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		860A664B11FA2119124E4C17 /* Pods-S4mpl310.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S4mpl310.debug.xcconfig"; path = "Target Support Files/Pods-S4mpl310/Pods-S4mpl310.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +53,11 @@
 		CBF362585FC3D4C11BA0BEFD /* Pods-S4mpl310.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S4mpl310.release.xcconfig"; path = "Target Support Files/Pods-S4mpl310/Pods-S4mpl310.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F45E481C3CA141249DB75669 /* Tone.js */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Tone.js; path = ../assets/Tone.js; sourceTree = "<group>"; };
+		1FE6F1802FB346989C5B5345 /* Nab.png */ = {isa = PBXFileReference; name = "Nab.png"; path = "../assets/Nab.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3BC862CE47C74AC9ACE9C749 /* sample01.wav */ = {isa = PBXFileReference; name = "sample01.wav"; path = "../assets/sample01.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		71E126A214014641AF3480B3 /* sample02.wav */ = {isa = PBXFileReference; name = "sample02.wav"; path = "../assets/sample02.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		41504005341C4022881BFDD7 /* sample03.wav */ = {isa = PBXFileReference; name = "sample03.wav"; path = "../assets/sample03.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		41235A62EFC64387A51CACF7 /* webview.html */ = {isa = PBXFileReference; name = "webview.html"; path = "../assets/webview.html"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +168,11 @@
 			children = (
 				F45E481C3CA141249DB75669 /* Tone.js */,
 				B542C2547B3348E7A415C5B4 /* hu.wav */,
-				507DED3D2F854266BF165F03 /* webview.html */,
+				1FE6F1802FB346989C5B5345 /* Nab.png */,
+				3BC862CE47C74AC9ACE9C749 /* sample01.wav */,
+				71E126A214014641AF3480B3 /* sample02.wav */,
+				41504005341C4022881BFDD7 /* sample03.wav */,
+				41235A62EFC64387A51CACF7 /* webview.html */,
 			);
 			name = Resources;
 			path = "";
@@ -264,7 +276,11 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3D62176B70024984BD0D8B1B /* Tone.js in Resources */,
 				5004D683E78445D4AF9F33B6 /* hu.wav in Resources */,
-				FA458EC7C0354230B5462531 /* webview.html in Resources */,
+				D185CE9886954C7DBEC85A42 /* Nab.png in Resources */,
+				16BCD12AB20D47F18DF8A253 /* sample01.wav in Resources */,
+				5533DE2D73104A5A989F576D /* sample02.wav in Resources */,
+				A628E3F5CF15459DB83BDB2F /* sample03.wav in Resources */,
+				E077AF9F45DA424888536BA0 /* webview.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

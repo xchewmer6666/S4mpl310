@@ -12,8 +12,8 @@ interface Props {
 const BuilderPage = ({ webViewRef }: Props) => {
   return (
     <ScrollView>
-      <PolySynth webViewRef={webViewRef} />
-      <Oscilator webViewRef={webViewRef} />
+      {/* <PolySynth webViewRef={webViewRef} /> */}
+      {/* <Oscilator webViewRef={webViewRef} /> */}
       <Sampler webViewRef={webViewRef} />
     </ScrollView>
   );
