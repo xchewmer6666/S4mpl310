@@ -27,7 +27,7 @@ const Mixer = ({ keyName, webViewRef, played }: Props) => {
     pitchResArr += ']';
 
     const js = jsInjector(pitchResArr, timing, delay, played);
-    console.log(js);
+    // console.log(js);
     webViewRef.current?.injectJavaScript(js);
   }
 
@@ -41,12 +41,6 @@ const Mixer = ({ keyName, webViewRef, played }: Props) => {
   }, [pitchRes]);
 
   const playSample = async () => {
-    const splKeyName = keyName.split('key')[1];
-    if (parseInt(splKeyName) % 10 !== 0) {
-      const dl = ((parseInt(splKeyName) % 10) * 1000);;
-      await new Promise((r: any) => setTimeout(r, dl));
-    }
-
     sample({ pitchRes: pitchResCalculated, timing, delay, played });
   };
 
