@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import PolySynth from '../../components/PolySynth';
 import WebView from 'react-native-webview';
@@ -11,11 +11,11 @@ interface Props {
 
 const BuilderPage = ({ webViewRef }: Props) => {
   return (
-    <ScrollView>
+    <SafeAreaView>
       {/* <PolySynth webViewRef={webViewRef} /> */}
       {/* <Oscilator webViewRef={webViewRef} /> */}
       <Sampler webViewRef={webViewRef} />
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 

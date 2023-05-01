@@ -1,4 +1,4 @@
-import { TouchableOpacity, Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { TouchableOpacity, Platform, StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
 import React, { useRef, useEffect } from 'react';
 
 import { WebView } from 'react-native-webview';

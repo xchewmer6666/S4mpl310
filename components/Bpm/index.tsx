@@ -10,9 +10,9 @@ const Bpm = () => {
   const globalBpm = useSelector((state: any) => state.bpm.bpm);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   console.log(globalBpm);
-  // }, [globalBpm]);
+  useEffect(() => {
+    console.log(globalBpm);
+  }, [globalBpm]);
 
   return (
     <View
@@ -20,7 +20,7 @@ const Bpm = () => {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        right: 20
+        right: 20,
       }}
     >
       <TextInput
@@ -32,7 +32,7 @@ const Bpm = () => {
         style={{
           backgroundColor: 'silver',
           height: 40,
-          width: 100,
+          width: 80,
           paddingLeft: 5,
           marginRight: 20,
         }}

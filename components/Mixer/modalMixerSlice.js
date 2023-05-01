@@ -1,24 +1,22 @@
 import {
   createSlice,
 } from "@reduxjs/toolkit";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
 
 const initialState = {
-  sumDelay: 0,
+  globalTiming: 1,
+  counter: 0
 };
 
 const modalMixerSlice = createSlice({
   name: 'modalMixer',
   initialState,
   reducers: {
-    setGlobalDelay: (state, action) => {
-
-      state.sumDelay += parseFloat(action.payload.timing) + parseFloat(action.payload.delay);
-      console.log(state.sumDelay);
+    setGlobalTiming: (state, action) => {
+      if (state.counter === 0) state.globalTiming = action.payload;
+      if (state.counter < 1) state.counter++;
     }
   },
 });
 
-export const { setGlobalDelay } = modalMixerSlice.actions;
+export const { setGlobalTiming } = modalMixerSlice.actions;
 export default modalMixerSlice.reducer;

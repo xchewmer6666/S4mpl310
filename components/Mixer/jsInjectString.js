@@ -1,144 +1,124 @@
-export const jsInjector = (pitchRes, timing, delay, play) => `
-if(timeout${delay}){
-  window.ReactNativeWebView.postMessage('timeout ${delay} is present');
-}
 
-playHandler${delay} = () => {
-  now${delay} = Date.now();
-  player${delay}.loop = true;
-  // player${delay}.playbackRate = 1.5;
-  player${delay}.start();
-}
+export const jsInjector = (pitchRes, timing, instance, play, name, volume, pitchShift) => {
+  const nins = `${name}${instance}`;
+  return `
+    if(${pitchShift} && state.players['player${nins}']){
+      pitchShift${nins} = new Tone.PitchShift(${pitchShift}).toDestination();
+      state.players['player${nins}'].fan(pitchShift${nins});
+    }
 
-syncHandler${delay} = () => {
-  
-  if(${delay} === 1){
-    currmillis${delay} = null;
-    if(timeout2 && !timeout3){
-      currmillis${delay} = Date.now() - (now2);
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000)
-      window.ReactNativeWebView.postMessage(currmillis${delay});
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay});
+    if(state.timeouts['timeout${nins}']){
+      window.ReactNativeWebView.postMessage('timeout ${nins} is present');
     }
-    else if(timeout2 && timeout3){
-      if(now2 > now3){
-        currmillis${delay} = Date.now() - (now2);
+
+    if(${play} && state.players['player${nins}']){
+      state.players['player${nins}'].playbackRate = ${timing};
+    }
+
+    if(state.players['player${nins}'] && ${volume} !== 1){
+      state.players['player${nins}'].volume.value = ${volume};
+    }
+
+    playHandler${nins} = () => {
+      state.nows['now${nins}'] = Date.now();
+      state.players['player${nins}'].loop = true;
+      if(parseInt(${timing}) !== 1){
+        state.players['player${nins}'].playbackRate = ${timing};
       }
-      else if(now3 > now2){
-        currmillis${delay} = Date.now() - (now3);
+      state.players['player${nins}'].start();
+    }
+
+    syncHandler${nins} = () => {
+      currmillis${nins} = null;
+      currDelays${nins} = [];
+
+      for(i${nins} = 0; i${nins} < 10; i${nins}++){
+        for (j${nins} = 1; j${nins} < 4; j${nins}++) {
+          timeoutName${nins} = \`timeout\$\{i${nins}\}\$\{j${nins}\}\`;
+          if(
+            !(timeoutName${nins} === 'timeout${nins}') &&
+            state.timeouts[timeoutName${nins}]
+          ){
+            window.ReactNativeWebView.postMessage('yek');
+            window.ReactNativeWebView.postMessage(state.nows[\`now\$\{i${nins}\}\$\{j${nins}\}\`]);
+            currDelays${nins}.push({
+              name: timeoutName${nins} ,
+              value: \`now\$\{i${nins}\}\$\{j${nins}\}\`,
+            });
+          }
+
+        }
       }
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000);
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay}); 
-    }
-    else if(timeout3 && !timeout2){
-      currmillis${delay} = Date.now() - (now3);
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000);
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay});  
-    }
+      
+      if(currDelays${nins}.length === 1) {
+        delay${nins} = currDelays${nins}[0].value;
+
+        window.ReactNativeWebView.postMessage('do');
+        window.ReactNativeWebView.postMessage(delay${nins});
+        currmillis${nins} = Date.now() - state.nows[delay${nins}];
+        currmillis${nins} = (8000 ) - (Math.abs(currmillis${nins})) % (8000 );
+        setTimeout(() => {
+          playHandler${nins}();
+          return;
+        }, currmillis${nins});
+        return ;
+      }
+      
+      if(currDelays${nins}.length > 1){
+        max${nins} = {name: 0, value: 0};
+
+        currDelays${nins}.map((ay${nins}) => {
+          max${nins} = state.nows[ay${nins}.value];
+
+          if(state.nows[ay${nins}.value] > max${nins}.value){
+            max${nins} = state.nows[ay${nins}.value];
+          }
+        });
+
+        delay${nins} = max${nins};
+        window.ReactNativeWebView.postMessage('map');
+        window.ReactNativeWebView.postMessage(delay${nins});
+        currmillis${nins} = Date.now() - delay${nins};
+        currmillis${nins} = (8000 ) - (Math.abs(currmillis${nins})) % (8000 );
+        window.ReactNativeWebView.postMessage(currmillis${nins});
+        setTimeout(() => {
+          playHandler${nins}();
+          return;
+        }, currmillis${nins});
+        return;
+      }
+
+      else {
+        playHandler${nins}();
+      }
+    } // end syncHandler
+
+    if(${play} && !state.timeouts['timeout${nins}']){
+      state.timeouts['timeout${nins}'] = true;
+
+      if(!state.players['player${nins}']){
+        state.players['player${nins}'] = new Tone.Player("sample0${(instance % 3 == 0 ? 3 : instance % 3)}.wav", () => {
+          // playHandler${instance}();
+          // window.ReactNativeWebView.postMessage('playing${instance}');
+          syncHandler${nins}();
+        }).toDestination();
+      } 
+      
+      else {
+        syncHandler${nins}();
+      }
+
+    } 
+
     else {
-      playHandler${delay}();
-    }
-  }
-
-  if(${delay} === 2){
-    currmillis${delay} = null;
-    if(timeout1 && !timeout3){
-      currmillis${delay} = Date.now() - (now1);
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000)
-      window.ReactNativeWebView.postMessage(currmillis${delay});
+      millis${nins} = Date.now() - state.nows['now${nins}'];
+      // window.ReactNativeWebView.postMessage(8000 - (Math.abs(millis${nins}) % 8000));
       setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay});
+        state.players['player${nins}'].stop();
+        state.timeouts['timeout${nins}'] = false;
+      }, 8000 - (Math.abs(millis${nins}) % 8000));
     }
-    else if(timeout1 && timeout3){
-      if(now1 > now3){
-        currmillis${delay} = Date.now() - (now1);
-      }
-      else if(now3 > now1){
-        currmillis${delay} = Date.now() - (now3);
-      }
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000);
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay}); 
-    }
-    else if(timeout3 && !timeout1){
-      currmillis${delay} = Date.now() - (now3);
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000);
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay});  
-    }
-    else {
-      playHandler${delay}();
-    }
-  }
 
-  if(${delay} === 3){
-    currmillis${delay} = null;
-    if(timeout1 && !timeout2){
-      currmillis${delay} = Date.now() - (now1);
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000)
-      window.ReactNativeWebView.postMessage(currmillis${delay});
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay});
-    }
-    else if(timeout1 && timeout2){
-      if(now1 > now2){
-        currmillis${delay} = Date.now() - (now1);
-      }
-      else if(now2 > now1){
-        currmillis${delay} = Date.now() - (now2);
-      }
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000);
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay}); 
-    }
-    else if(timeout2 && !timeout1){
-      currmillis${delay} = Date.now() - (now2);
-      currmillis${delay} = 8000 - (Math.abs(currmillis${delay}) % 8000);
-      setTimeout(() => {
-        playHandler${delay}();
-      }, currmillis${delay});  
-    }
-    else {
-      playHandler${delay}();
-    }
-  }
+    true;
+`};
 
-}
-
-if(${play} && !timeout${delay}){
-  timeout${delay} = true;
-
-  if(!player${delay}){
-    player${delay} = new Tone.Player("sample0${delay}.wav", () => {
-      // playHandler${delay}();
-      window.ReactNativeWebView.postMessage('playing${delay}');
-      syncHandler${delay}();
-    }).toDestination();
-  } else {
-    syncHandler${delay}();
-  }
-
-} 
-
-else {
-  millis${delay} = Date.now() - now${delay};
-  // window.ReactNativeWebView.postMessage(8000 - (Math.abs(millis${delay}) % 8000));
-  setTimeout(() => {
-    player${delay}.stop();
-    timeout${delay} = false;
-  }, 8000 - (Math.abs(millis${delay}) % 8000));
-}
-
-true;
-`;

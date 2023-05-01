@@ -15,6 +15,7 @@ const Timings = ({
 }: Props) => {
   const inputRef = useRef<TextInput>(null);
   const globalBpm = useSelector((state: any) => state.bpm.bpm);
+  const globalTiming = useSelector((state: any) => state.modalMixer.globalTiming);
 
   return (
     <View
@@ -27,25 +28,30 @@ const Timings = ({
       <Text style={{ width: '100%', height: 30, marginTop: -10 }}>value: {value}</Text>
       <TextInput
         value={value}
-        keyboardType='numeric'
+        keyboardType={
+          name === 'volume' ?
+            'default' :
+            'numeric'
+        }
         onChangeText={(text) => {
           if (text.split('.')[0].length > 3) {
             inputRef.current?.blur();
             return;
           }
+          // if (globalTiming == 2 && parseFloat(text) < 2) {
+          //   setValue(`${globalTiming}`);
+          //   return;
+          // }
+          // if (
+          //   text &&
+          //   name === 'timing' &&
+          // !(parseFloat(text) % globalTiming == 0) &&
+          // !(parseFloat(text) <= globalTiming) &&
+          //   text !== '.'
+          // ) {
 
-          if (name === 'timing') {
-            if (parseFloat(text) * 60 <= globalBpm) {
-              setValue(text);
-              return;
-            }
-
-            if (text === '' || text === '.') {
-              setValue(text);
-              return;
-            }
-            setValue(`${globalBpm / 60}`);
-          }
+          //   setValue(`${globalTiming}`);
+          // }
           else {
             setValue(text);
           }

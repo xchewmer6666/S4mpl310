@@ -5,27 +5,54 @@
     <script src="Tone.js">
     </script>
     <script>
-      // Initialite synth object
-      try {
-        var osc = new Tone.Oscillator().toDestination();
-        var synth = new Tone.PolySynth({}, Tone.Synth).toDestination();
+      // // Initialite synth object
+      // try {
+      //   var osc = new Tone.Oscillator().toDestination();
+      //   var synth = new Tone.PolySynth({}, Tone.Synth).toDestination();
 
-      } catch (err) {
-        window.ReactNativeWebView.postMessage(err);
+      // } catch (err) {
+      //   window.ReactNativeWebView.postMessage(err);
+      // }
+
+      const state = {
+        timeouts: {
+          timeout01: false, timeout02: false, timeout03: false,
+          timeout11: false, timeout12: false, timeout13: false,
+          timeout21: false, timeout22: false, timeout23: false,
+          timeout31: false, timeout32: false, timeout33: false,
+          timeout41: false, timeout42: false, timeout43: false,
+          timeout51: false, timeout52: false, timeout53: false,
+          timeout61: false, timeout62: false, timeout63: false,
+          timeout71: false, timeout72: false, timeout73: false,
+          timeout81: false, timeout82: false, timeout83: false,
+          timeout91: false, timeout92: false, timeout93: false,
+        },
+        players: {
+          player01: false, player02: false, player03: false,
+          player11: false, player12: false, player13: false,
+          player21: false, player22: false, player23: false,
+          player31: false, player32: false, player33: false,
+          player41: false, player42: false, player43: false,
+          player51: false, player52: false, player53: false,
+          player61: false, player62: false, player63: false,
+          player71: false, player72: false, player73: false,
+          player81: false, player82: false, player83: false,
+          player91: false, player92: false, player93: false,
+        },
+
+        nows: {
+          now01: false, now02: false, now03: false,
+          now11: false, now12: false, now13: false,
+          now21: false, now22: false, now23: false,
+          now31: false, now32: false, now33: false,
+          now41: false, now42: false, now43: false,
+          now51: false, now52: false, now53: false,
+          now61: false, now62: false, now63: false,
+          now71: false, now72: false, now73: false,
+          now81: false, now82: false, now83: false,
+          now91: false, now92: false, now93: false,
+        },
       }
-
-      timeout1 = false;
-      timeout2 = false;
-      timeout3 = false;
-
-      player1 = null;
-      player2 = null;
-      player3 = null;
-
-      now1 = null;
-      now2 = null;
-      now3 = null;
-
     </script>
   </head>
 

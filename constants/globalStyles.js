@@ -14,5 +14,5 @@ export const globalStyles = StyleSheet.create({
     width: 200,
     fontFamily: 'Courier',
     borderRadius: radius_sm
-  }
+  },
 });

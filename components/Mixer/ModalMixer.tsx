@@ -1,10 +1,11 @@
-import { Modal, Pressable, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Modal, Pressable, SafeAreaView, StatusBar, Text, View } from 'react-native';
 import React from 'react';
 import { styles } from './index.styles';
 import KeyPicker from './KeyPicker';
 import TimingsWrapper from './TimingsWrapper';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGlobalDelay } from './modalMixerSlice';
+import { setGlobalTiming } from './modalMixerSlice';
+import Transpose from '../Transpose';
 
 const ModalMixer = ({ payload }: any) => {
   const {
@@ -13,16 +14,17 @@ const ModalMixer = ({ payload }: any) => {
     octKeys,
     pitchRes,
     setPitchRes,
-    delay,
+    instance,
     timing,
     loopCount,
-    setDelay,
+    setInstance,
     setTiming,
     setLoopCount,
-    addedToGlobalDelay,
-    setAddedToGlobalDelay,
+    pitchShift,
+    setPitchShift,
+    volume,
+    setVolume
   } = payload;
-  const globalDelay = useSelector((state: any) => state.modalMixer.sumDelay);
   const dispatch = useDispatch();
 
   return (
@@ -34,26 +36,28 @@ const ModalMixer = ({ payload }: any) => {
         setModalVisible(!modalVisible);
       }}
     >
-      <View style={styles.overlay}></View>
-      <View style={styles.centeredView}>
+      <KeyboardAvoidingView style={styles.centeredView} behavior='padding'>
+        <View style={styles.overlay}></View>
         <View style={[styles.modalView, { paddingTop: 60 }]}>
+
           <KeyPicker octKeys={octKeys} pitchRes={pitchRes} setPitchRes={setPitchRes} />
-          <TimingsWrapper payload={{ delay, timing, loopCount, setDelay, setTiming, setLoopCount }} />
+          <TimingsWrapper
+            payload={{
+              instance, timing, loopCount, setInstance, setTiming,
+              setLoopCount, volume, setVolume, pitchShift, setPitchShift
+            }}
+          />
 
           <Pressable
             style={[styles.button, styles.buttonClose]}
             onPress={() => {
               setModalVisible(!modalVisible);
-              if (parseFloat(timing) + parseFloat(delay) !== globalDelay && !addedToGlobalDelay) {
-                dispatch(setGlobalDelay({ timing, delay }));
-                setAddedToGlobalDelay(true);
-              }
+              dispatch(setGlobalTiming(timing));
             }}>
-            <Text style={styles.textStyle}>Close & Save</Text>
+            <Text style={styles.textStyle}>Save</Text>
           </Pressable>
-
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal >
   )
 }

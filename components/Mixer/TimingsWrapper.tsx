@@ -1,24 +1,20 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 import Timings from './Timings';
-
-interface Props {
-  timing: string;
-  delay: string;
-  loopCount: string;
-  setTiming: React.Dispatch<React.SetStateAction<string>>;
-  setDelay: React.Dispatch<React.SetStateAction<string>>;
-  setLoopCount: React.Dispatch<React.SetStateAction<string>>;
-}
+import Transpose from '../Transpose';
 
 const TimingsWrapper = (payload: any) => {
   const {
     timing,
-    delay,
+    instance,
     loopCount,
     setTiming,
-    setDelay,
+    setInstance,
     setLoopCount,
+    volume,
+    setVolume,
+    pitchShift,
+    setPitchShift
   } = payload.payload;
 
   return (
@@ -30,8 +26,10 @@ const TimingsWrapper = (payload: any) => {
       }}
     >
       <Timings name='timing' value={timing} setValue={setTiming} />
-      <Timings name='delay' value={delay} setValue={setDelay} />
+      <Timings name='sample' value={instance} setValue={setInstance} />
       <Timings name='loopCnt' value={loopCount} setValue={setLoopCount} />
+      <Timings name='volume' value={volume} setValue={setVolume} />
+      <Transpose value={pitchShift} setValue={setPitchShift} />
     </View>
   );
 }

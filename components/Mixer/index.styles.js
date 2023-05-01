@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     width: width / 1.2,
     height: height / 1.1,
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#D3D3D3',
     borderRadius: radius_sm,
     padding: 35,
     alignItems: 'flex-start',

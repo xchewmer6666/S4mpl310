@@ -1,14 +1,15 @@
 import { View } from 'react-native';
 import React from 'react';
 import Bpm from '../Bpm';
+import Transpose from '../Transpose';
 
 const Player = () => {
 
   return (
     <View
       style={{
-        flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-between',
+        backgroundColor: 'silver'
       }}
     >
       <Bpm />
